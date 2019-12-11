@@ -10,10 +10,6 @@ const correioController = require('./app/controller/correioController');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/', (req, res, next)=>{
-    res.end('Pagina inicial')
-});
-
 app.get('/rastrear', correioController.veriicarCodigo)
 
 server.listen(3000);
