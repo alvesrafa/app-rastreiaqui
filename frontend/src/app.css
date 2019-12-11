@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#todo {
+    background: url('./back.png');
+    height: 100vh;
+}
