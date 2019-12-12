@@ -8,8 +8,15 @@ const server = http.createServer(app);
 
 const correioController = require('./app/controller/correioController');
 
+app.use((req,res,next) => {
+    res.setHeader('Access-Control-Allow-Origin','*'); //dominio do 'front'
+    res.setHeader('Access-Control-Allow-Methods','*');//GET, POST, PUT, DELETE, PATCH, OPTIONS
+    res.setHeader('Access-Control-Allow-Headers','*'); // ou Content-Type
+    next();
+});
+
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/rastrear', correioController.veriicarCodigo)
+app.post('/rastrear', correioController.veriicarCodigo)
 
-server.listen(3000);
+server.listen(3001);

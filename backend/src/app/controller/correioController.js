@@ -1,9 +1,9 @@
 const { rastro } = require('rastrojs');
 
 exports.veriicarCodigo = (req,res,next)=> {
-    let rastrio = rastrear(req.body.codigo);
+    let rastreio = rastrear(req.body.codigo);
 
-    let objeto = rastrio.then(function(result){
+    let objeto = rastreio.then(function(result){
         return res.send(result);
     })
     // res.send(rastrear(req.body.codigo))
