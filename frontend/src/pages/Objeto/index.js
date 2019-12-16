@@ -6,38 +6,44 @@ class Objeto extends Component {
         super(props);
     
         this.state = {
-          codigo: ''
+          objeto: '',
+          status: false
         };
 
     }
     componentDidMount() {
-        
-        
-        
-        fetch(`http://127.0.0.1:3001/rastrear`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: JSON.stringify({codigo: this.props.match.params.codigoRastreio})
-        }).then((response) => {
-            if(response.ok) {
-                response.blob().then(function(myBlob) {
-                  console.log(myBlob)
-                });
-              } else {
-                console.log('Network response was not ok.');
-              }
-        })
-        
-    }
-
+      fetch(`http://127.0.0.1:3001/rastrear/${this.props.match.params.codigoRastreio}`)
+      .then(res => res.json())
+          .then((result) => {
+            this.setState({objeto: result[0]})
+            console.log(this.state.objeto)
+            if(this.analisarObjeto(this.state.objeto)){
+              this.setState({status : true})
+            }
+        },
+        (error) => {
+          console.log('erro')
+        }
+      )
+  }
+  analisarObjeto(objeto){
+    if (objeto.isDelivered === true) return true;
+    if (objeto.isInvalid === true) return false;
+    //falta verificar quando o objeto ainda não foi postado
+  }
     render() {
-        return ( 
-            <div className="container">
-                {this.state.codigo}
-            </div>
-        );
+       return (
+          <div className="container">
+            {this.state.status === false &&(
+              <div>Está errado</div>
+            )}
+            {this.state.status === true &&(
+              <div>Está correto</div>
+            )}
+            
+          </div>
+       )
+        
     }
 
 }

@@ -17,6 +17,6 @@ app.use((req,res,next) => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.post('/rastrear', correioController.veriicarCodigo)
+app.get('/rastrear/:codigo', correioController.veriicarCodigo)
 
 server.listen(3001);
