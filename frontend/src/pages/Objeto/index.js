@@ -7,7 +7,9 @@ class Objeto extends Component {
     
         this.state = {
           objeto: '',
-          status: false
+          status: false,
+          codigo: '',
+
         };
 
     }
@@ -16,6 +18,7 @@ class Objeto extends Component {
       .then(res => res.json())
           .then((result) => {
             this.setState({objeto: result[0]})
+
             console.log(this.state.objeto)
             if(this.analisarObjeto(this.state.objeto)){
               this.setState({status : true})
@@ -33,11 +36,14 @@ class Objeto extends Component {
   }
     render() {
        return (
-          <div className="container d-flex justify-content-center flex-column">
+        
+          <div className="d-flex justify-content-center flex-column">
+            <div>Código: {this.state.objeto.code}</div>
             {this.state.status === false &&(
-              <div>Está errado</div>
+              <div>Código invalido</div>
             )}
             {this.state.status === true &&(
+              
               this.state.objeto.tracks.map((track) => (
                 <div class="card text-center">
                   <div class="card-header">
