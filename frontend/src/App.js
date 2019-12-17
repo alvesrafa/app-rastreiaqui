@@ -1,13 +1,15 @@
 import React from 'react';
 import Routes from './routes';
 import './app.css';
-
+import Header from './components/header';
 function App() {
   return (
-    <div id="todo" className="d-flex justify-content-center align-items-center">
-       <Routes/>
+    <div>
+      <Header/>
+      <div className="container">
+        <Routes/>
+      </div>
     </div>
-    
   );
 }
 

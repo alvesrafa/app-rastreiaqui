@@ -33,12 +33,26 @@ class Objeto extends Component {
   }
     render() {
        return (
-          <div className="container">
+          <div className="container d-flex justify-content-center flex-column">
             {this.state.status === false &&(
               <div>Está errado</div>
             )}
             {this.state.status === true &&(
-              <div>Está correto</div>
+              this.state.objeto.tracks.map((track) => (
+                <div class="card text-center">
+                  <div class="card-header">
+                    {track.status}
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{track.locale}</h5>
+                    <p class="card-text">{track.observation}</p>
+                  </div>
+                  <div class="card-footer text-muted">
+                  <p class="card-text">{track.trackedAt}</p>
+                  </div>
+                </div>
+
+            ))
             )}
             
           </div>
