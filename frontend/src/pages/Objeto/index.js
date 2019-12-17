@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './master.css';
 
 class Objeto extends Component {
     constructor(props) {
@@ -34,30 +34,38 @@ class Objeto extends Component {
     if (objeto.isInvalid === true) return false;
     //falta verificar quando o objeto ainda não foi postado
   }
+  dataFormatada(date){
+    var data = new Date(date),
+        dia  = data.getDate().toString().padStart(2, '0'),
+        mes  = (data.getMonth()+1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
+        ano  = data.getFullYear(),
+        hora = data.getHours(),
+        minuto = data.getMinutes();
+    return dia + "/" + mes + "/" + ano + " às " + hora + ":" + minuto;
+}
     render() {
        return (
         
-          <div className="d-flex justify-content-center flex-column">
-            <div>Código: {this.state.objeto.code}</div>
+          <div className="">
+            <div className="text-center">Código: {this.state.objeto.code}</div>
             {this.state.status === false &&(
               <div>Código invalido</div>
             )}
             {this.state.status === true &&(
               
               this.state.objeto.tracks.map((track) => (
-                <div class="card text-center">
-                  <div class="card-header">
-                    {track.status}
+                <div className="row objeto">
+                  <div className="col-12 text-center icon"><i class="fas fa-long-arrow-alt-down"></i></div>
+                  <div className="col-2 side">
+                    <div>{this.dataFormatada(track.trackedAt)}</div>
+                    <p>{track.locale}</p>
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{track.locale}</h5>
-                    <p class="card-text">{track.observation}</p>
+                  <div className="col-10 informacao">
+                    <p>{track.status}</p>
+                    {track.observation}
                   </div>
-                  <div class="card-footer text-muted">
-                  <p class="card-text">{track.trackedAt}</p>
-                  </div>
+                  
                 </div>
-
             ))
             )}
             

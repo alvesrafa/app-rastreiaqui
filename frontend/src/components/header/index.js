@@ -17,7 +17,7 @@ export default class Header extends Component {
                     <div className="logo">icon</div>
                     <ul className="lista-menu">
                         <li><a href="">Home</a></li>
-                        <li><a href="">Sobre</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
                         <li><a href="">Contato</a></li>
                     </ul>
                 </nav>
