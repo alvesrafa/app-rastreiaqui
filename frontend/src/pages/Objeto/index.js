@@ -14,7 +14,7 @@ class Objeto extends Component {
 
     }
     componentDidMount() {
-      fetch(`http://127.0.0.1:3001/rastrear/${this.props.match.params.codigoRastreio}`)
+      fetch(`https://3001-db98feae-2c8b-4bdf-8485-d555759e5641.ws-us02.gitpod.io/rastrear/${this.props.match.params.codigoRastreio}`)
       .then(res => res.json())
           .then((result) => {
             this.setState({objeto: result[0]})
@@ -30,8 +30,9 @@ class Objeto extends Component {
       )
   }
   analisarObjeto(objeto){
-    if (objeto.isDelivered === true) return true;
     if (objeto.isInvalid === true) return false;
+
+    return true;
     //falta verificar quando o objeto ainda não foi postado
   }
   dataFormatada(date){
