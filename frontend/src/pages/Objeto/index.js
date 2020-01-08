@@ -14,7 +14,7 @@ class Objeto extends Component {
 
     }
     componentDidMount() {
-      fetch(`https://3001-db98feae-2c8b-4bdf-8485-d555759e5641.ws-us02.gitpod.io/rastrear/${this.props.match.params.codigoRastreio}`)
+      fetch(`localhost:3000/rastrear/${this.props.match.params.codigoRastreio}`)
       .then(res => res.json())
           .then((result) => {
             this.setState({objeto: result[0]})
