@@ -10,7 +10,7 @@ Aplicação web para rastreio de encomendas que estão cadastrados nos Correios 
 
 ## Getting started - branch 'backend'
 1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/backend <br>
-2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. 
+2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Executar: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.1. 'npm install' <br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.2. 'npx nodemon'<br>
@@ -18,7 +18,7 @@ Aplicação web para rastreio de encomendas que estão cadastrados nos Correios 
 
 ## Getting started - branch 'frontend'
 1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/frontend <br>
-2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. 
+2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Executar: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;4.1. 'npm install' <br>
 &nbsp;&nbsp;&nbsp;&nbsp;4.2. 'npm start' <br>
