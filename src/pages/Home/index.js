@@ -7,7 +7,7 @@ class Home extends Component {
     
     render(){
         return (
-            <div className="text-center">conteudo da home</div>
+            <div className="text-center">Informe o código de rastreio dentro da caixa de texto acima e em seguida clique em 'Rastrear'</div>
         )
     }
 }
