@@ -14,7 +14,7 @@ class Objeto extends Component {
 
     }
     componentDidMount() {
-      fetch(`localhost:3000/rastrear/${this.props.match.params.codigoRastreio}`)
+      fetch(`https://rastreiaqui-back.herokuapp.com/rastrear/${this.props.match.params.codigoRastreio}`)
       .then(res => res.json())
           .then((result) => {
             this.setState({objeto: result[0]})
