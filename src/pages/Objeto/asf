@@ -1,0 +1,20 @@
+<div className="text-center">Código: {this.state.objeto.code}</div>
+            {this.state.status === false &&(
+              <div>Código invalido</div>
+            )}
+            {this.state.status === true &&(
+              this.state.objeto.tracks.map((track) => (
+                <div className="row objeto">
+                  <div className="col-12 text-center icon"><i className="fas fa-long-arrow-alt-down"></i></div>
+                  <div className="col-2 side">
+                    <div>{this.dataFormatada(track.trackedAt)}</div>
+                    <p>{track.locale}</p>
+                  </div>
+                  <div className="col-10 informacao">
+                    <p>{track.status}</p>
+                    {track.observation}
+                  </div>
+                  
+                </div>
+            ))
+            )}
