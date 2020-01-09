@@ -25,6 +25,9 @@ class Objeto extends Component {
             if(this.analisarObjeto(this.state.objeto)){
               this.setState({status : true})
               this.setState({carregando: false})
+            } else {
+              this.setState({status : false})
+              this.setState({carregando: false})
             }
         },
         (error) => {
@@ -51,32 +54,39 @@ class Objeto extends Component {
 }
     render() {
        return (
+         <div>
           <div className="text-center">
             {this.state.carregando === true &&(
               <ThreeDots  stroke="#000"/>
             )}
-            {this.state.status === false &&(
-              <div>
-                <div className="text-center">Código: {this.state.objeto.code}</div>
-                <div>Código invalido</div>
-              </div>
-            )}
-            {this.state.status === true &&(
-              this.state.objeto.tracks.map((track) => (
-                <div className="row objeto">
-                  <div className="col-12 text-center icon"><i className="fas fa-long-arrow-alt-down"></i></div>
-                  <div className="col-2 side">
-                    <div>{this.dataFormatada(track.trackedAt)}</div>
-                    <p>{track.locale}</p>
-                  </div>
-                  <div className="col-10 informacao">
-                    <p>{track.status}</p>
-                    {track.observation}
-                  </div>
-                </div>
-              ))
-            )}
           </div>
+          {this.state.status === false &&(
+            <div className="row">
+              <div className="text-center">
+              Código: {this.state.objeto.code}
+              </div>
+              <div>Código invalido ou ainda não atualizado.</div>
+            </div>
+            
+            )}
+            {this.state.status === true && this.state.carregando === false &&(
+                this.state.objeto.tracks.map((track) => (
+                  <div className="row objeto">
+                    <div className="col-12 text-center icon"><i className="fas fa-long-arrow-alt-down"></i></div>
+                    <div className="col-2 side">
+                      <div>{this.dataFormatada(track.trackedAt)}</div>
+                      <p>{track.locale}</p>
+                    </div>
+                    <div className="col-10 informacao">
+                      <p>{track.status}</p>
+                      {track.observation}
+                    </div>
+                  </div>
+                  
+                ))
+             
+          )}
+         </div>
        )
         
     }
