@@ -66,7 +66,7 @@ class Objeto extends Component {
                 <div className="col-12 text-center">
                   Código: {this.state.objeto.code}
                 </div>
-                <div className="col-12 text-center">Código invalido ou ainda não atualizado.</div>
+                <div className="col-12 text-center">Código inválido ou ainda não atualizado pela empresa.</div>
               </div>
             </div>
             )}
