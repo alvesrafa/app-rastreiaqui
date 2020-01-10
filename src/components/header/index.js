@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './master.css';
 import { Button, Form, Row, Col, InputGroup, FormControl,Card } from 'react-bootstrap';
-
+import logo from './logo-rastreiaqui.png';
 
 
 export default class Header extends Component {
@@ -14,7 +14,7 @@ export default class Header extends Component {
         return (
             <header>
                 <nav>
-                    <div className="logo">icon</div>
+                    <div className="logo"><img width="90" src={logo}/></div>
                     <ul className="lista-menu">
                         <li><a href="">Home</a></li>
                         <li><a href="#sobre">Sobre</a></li>
