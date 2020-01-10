@@ -21,7 +21,7 @@ class Objeto extends Component {
       .then(res => res.json())
           .then((result) => {
             this.setState({objeto: result[0]})
-            console.log(this.state.objeto)
+            //console.log(this.state.objeto)
             if(this.analisarObjeto(this.state.objeto)){
               this.setState({status : true})
               this.setState({carregando: false})
@@ -83,12 +83,13 @@ class Objeto extends Component {
                         <div className="col-12 text-center icon">
                           <i className="fas fa-long-arrow-alt-down"></i>
                         </div>
-                        <div>{this.dataFormatada(track.trackedAt)}</div>
-                        <div>{track.locale}</div>
+                        <div className="d-flex flex-column mb-3 text-center">
+                          <div>{this.dataFormatada(track.trackedAt)}</div><br/>
+                          <div className="titulo">{track.locale}</div>
+                        </div>
                       </div>
-                      <hr/>
                       <div className="col-md-6 col-sm-12">
-                        <div>{track.status}</div>
+                        <div className="titulo text-center">{track.status}</div>
                         <div>{track.observation}</div>
                       </div>
                     </div>
