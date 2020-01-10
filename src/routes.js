@@ -3,10 +3,12 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Objeto from './pages/Objeto';
 import Sobre from './pages/Sobre';
+import Contato from './pages/Contato';
 const Routes = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/contato" component={Contato}/>
             <Route path="/rastrear/:codigoRastreio" component={Objeto} />
         </Switch>
         <Sobre/>

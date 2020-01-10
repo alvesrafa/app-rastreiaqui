@@ -13,18 +13,15 @@ export default class Header extends Component {
         }else 
             window.location.replace(`/rastrear/${codigo}`)
     }
-    home() {
-        window.location.replace(`/`)
-    }
+
     render() {
         return (
             <header>
                 <nav>
-                    <div className="logo"><img width="90" src={logo}/></div>
+                    <div className="logo" ><a href="#"><img onClick={() => {window.location.replace(`/`)}} width="90" src={logo}/></a></div>
                     <ul className="lista-menu">
-                        <li><a href="#" id="home" onClick={() => this.home()}>Home</a></li>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="">Contato</a></li>
+                        <li><a href="#" onClick={() => {window.location.replace(`/contato`)}}>Contato</a></li>
                     </ul>
                 </nav>
                 <div className="busca">
