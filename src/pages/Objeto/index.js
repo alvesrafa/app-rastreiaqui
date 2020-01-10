@@ -61,33 +61,39 @@ class Objeto extends Component {
             )}
           </div>
           {this.state.status === false &&(
-            <div className="row">
-              <div className="text-center">
-              Código: {this.state.objeto.code}
+            <div className="card m-1">
+              <div className="row">
+                <div className="col-12 text-center">
+                  Código: {this.state.objeto.code}
+                </div>
+                <div className="col-12 text-center">Código invalido ou ainda não atualizado.</div>
               </div>
-              <div>Código invalido ou ainda não atualizado.</div>
             </div>
-            
             )}
             {this.state.status === true && this.state.carregando === false &&(
+              <div className="card m-1">
+                Código: {this.state.objeto.code}
+              </div>
+          )}
+            {this.state.status === true && this.state.carregando === false &&(
                 this.state.objeto.tracks.map((track) => (
-                  
-                    <div className="row d-flex justify-content-sm-center">
-                      <div className="col-md-3 col-sm-12 side row ">
-                        <div className="col-12 icon ml-5">
+                  <div className="card m-1">
+                    <div className="row p-1 d-flex align-items-center">
+                      <div className="col-md-3 col-sm-12 row d-flex justify-content-center">
+                        <div className="col-12 text-center icon">
                           <i className="fas fa-long-arrow-alt-down"></i>
                         </div>
                         <div>{this.dataFormatada(track.trackedAt)}</div>
-                        <p>{track.locale}</p>
+                        <div>{track.locale}</div>
                       </div>
-                      <div className="col-md-9 col-sm-12 informacao">
-                        <p>{track.status}</p>
-                        {track.observation}
+                      <hr/>
+                      <div className="col-md-6 col-sm-12">
+                        <div>{track.status}</div>
+                        <div>{track.observation}</div>
                       </div>
                     </div>
-                  
+                  </div>
                 ))
-             
           )}
          </div>
        )
