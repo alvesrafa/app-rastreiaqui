@@ -71,17 +71,20 @@ class Objeto extends Component {
             )}
             {this.state.status === true && this.state.carregando === false &&(
                 this.state.objeto.tracks.map((track) => (
-                  <div className="row objeto">
-                    <div className="col-12 text-center icon"><i className="fas fa-long-arrow-alt-down"></i></div>
-                    <div className="col-2 side">
-                      <div>{this.dataFormatada(track.trackedAt)}</div>
-                      <p>{track.locale}</p>
+                  
+                    <div className="row d-flex justify-content-sm-center">
+                      <div className="col-md-3 col-sm-12 side row ">
+                        <div className="col-12 icon ml-5">
+                          <i className="fas fa-long-arrow-alt-down"></i>
+                        </div>
+                        <div>{this.dataFormatada(track.trackedAt)}</div>
+                        <p>{track.locale}</p>
+                      </div>
+                      <div className="col-md-9 col-sm-12 informacao">
+                        <p>{track.status}</p>
+                        {track.observation}
+                      </div>
                     </div>
-                    <div className="col-10 informacao">
-                      <p>{track.status}</p>
-                      {track.observation}
-                    </div>
-                  </div>
                   
                 ))
              

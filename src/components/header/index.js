@@ -25,7 +25,7 @@ export default class Header extends Component {
                     <Form>
                         <Col sm={12}>
                             <InputGroup className="form-group">
-                                <FormControl type="text" className="form-control" required id="codigo" placeholder="Código de rastreio"/>
+                                <FormControl type="text" required className="form-control" required id="codigo" placeholder="Código de rastreio"/>
                             </InputGroup>
                         </Col>
                         <Col sm={12} className="text-center">

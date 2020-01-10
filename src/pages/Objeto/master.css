@@ -2,7 +2,6 @@
 .side {
     display: flex;
     flex-direction: column;
-    border-right: solid 1px #30336b;
 }
 .side  p{
     text-transform: capitalize;
@@ -24,7 +23,5 @@
 }
 .objeto {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    
 }
