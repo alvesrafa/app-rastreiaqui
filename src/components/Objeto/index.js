@@ -1,13 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import Rastreio from '../Rastreio';
 
-function Objeto({rastreio}) {
-  useEffect(()=>{
-    console.log(rastreio);
+
+function Objeto({rastreio, isDelivered}) {
+      if(isDelivered){
+        return <h1>asasas</h1>
+      }
+      
     
-  }, [rastreio])
-    return (
-      <h1>Objeto</h1>
-    );
+    
+      
+    
 }
 
 export default Objeto;
