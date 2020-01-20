@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Rastreio from '../Rastreio';
 import './objeto.css';
-
+import Sobre from '../../pages/Sobre';
 function Objeto({rastreio, isDelivered}) {
   if(isDelivered){
     return(
@@ -18,7 +18,7 @@ function Objeto({rastreio, isDelivered}) {
       </div>
       
     )
-  }else {
+  }else if(isDelivered == false){
     return(
       <div className="container">
         <div className="rastreio-code">
@@ -29,6 +29,8 @@ function Objeto({rastreio, isDelivered}) {
         </div>
       </div>
     )
+  } else if(isDelivered == null){
+    return <Sobre/>;
   }
   
 

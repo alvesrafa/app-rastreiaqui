@@ -1,30 +1,33 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './app.css';
 import api from './services/api';
 import Objeto from './components/Objeto';
 
 function App() {
-  const [delivered, setDelivered] = useState(false);
+  const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
-  const [rastreio, setRastreio] = useState('');
+  const [rastreio, setRastreio] = useState({});
 
   async function handleSearch(e) {
     e.preventDefault();
-    if(code != null){
+    if(code !== ""){
+      setRastreio('')
+      setDelivered(false)
       const response = await api.get(`/rastrear/${code}`);
       setRastreio(response.data[0])
+      if(response.data[0].isDelivered){
+        console.log('true')
+        setDelivered(true)
+      }
+      if(response.data[0].isInvalid){
+        console.log('false')
+        setDelivered(false)
+      }
     }
+
+    
     
   }
-  useEffect(()=>{
-    if(rastreio.isDelivered){
-      setDelivered(true)
-    }
-    if(rastreio.isInvalid){
-      setDelivered(false)
-    }
-  }, [rastreio])
-
 
   return (
     <div id="app">
@@ -34,7 +37,9 @@ function App() {
           <button onClick={handleSearch}>Buscar</button>
         </form>
       </div>
-      <Objeto rastreio={rastreio} isDelivered={delivered}/>
+      <div id="objeto">
+        <Objeto rastreio={rastreio} isDelivered={delivered}/>
+      </div>
     </div>
   );
 }
