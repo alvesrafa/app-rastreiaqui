@@ -17,7 +17,6 @@ function App() {
     
   }
   useEffect(()=>{
-    console.log(rastreio)
     if(rastreio.isDelivered){
       setDelivered(true)
     }
