@@ -19,4 +19,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/rastrear/:codigo', correioController.veriicarCodigo)
 
-server.listen(process.env.PORT || 3001);
+server.listen(process.env.PORT || 3001, () => {
+    console.log('opaaaa')
+});
