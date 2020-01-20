@@ -25,10 +25,9 @@ function Objeto({rastreio, isDelivered}) {
       <div className="container">
         <div className="rastreio-code-invalid">
           <strong>Código: {rastreio.code}</strong>
-          <h3>Código invalido ou ainda não atualizado</h3>
+          <h3>Código inválido ou ainda não atualizado</h3>
           <p>Verifique o código e realize uma nova busca. caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</p>
         </div>
-        
       </div>
     )
   } else if(isDelivered == null){

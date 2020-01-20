@@ -26,6 +26,9 @@
   border-radius: 2px;
   padding: 30px 20px;
 }
+.rastreio-code-invalid h3{
+  margin: 10px 0;
+}
 @media (max-width: 1000px) {
   .rastreio-code {
     width: 100%;
