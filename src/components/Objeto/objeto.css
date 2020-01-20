@@ -5,7 +5,7 @@
   gap: 10px;
 }
 .rastreio-code {
-  height: 100px;
+  height: 120px;
   width: 320px;
   background: #FFF;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.02);
@@ -19,9 +19,17 @@
   flex-direction: column-reverse;
   justify-content: center;
 }
+.rastreio-code-invalid {
+  width: 100%;
+  background: #FFF;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  padding: 30px 20px;
+}
 @media (max-width: 1000px) {
   .rastreio-code {
     width: 100%;
+    height: auto;
   }
   .container {
     flex-direction: column;

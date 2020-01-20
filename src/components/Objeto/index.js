@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Rastreio from '../Rastreio';
 import './objeto.css';
 import Sobre from '../../pages/Sobre';
+
+
 function Objeto({rastreio, isDelivered}) {
   if(isDelivered){
     return(
@@ -21,12 +23,12 @@ function Objeto({rastreio, isDelivered}) {
   }else if(isDelivered == false){
     return(
       <div className="container">
-        <div className="rastreio-code">
+        <div className="rastreio-code-invalid">
           <strong>Código: {rastreio.code}</strong>
+          <h3>Código invalido ou ainda não atualizado</h3>
+          <p>Verifique o código e realize uma nova busca. caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</p>
         </div>
-        <div className="rastreios">
-          <strong>Código inválido</strong>
-        </div>
+        
       </div>
     )
   } else if(isDelivered == null){

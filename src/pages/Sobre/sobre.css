@@ -1,0 +1,13 @@
+#sobre {
+  margin-top: 10px;
+  background: #FFF;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  padding: 30px 20px;
+}
+#sobre p {
+  margin-top: 7px;
+}
+#sobre h2 {
+  margin-bottom: 5px;
+}

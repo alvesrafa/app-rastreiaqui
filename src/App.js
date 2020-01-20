@@ -37,9 +37,8 @@ function App() {
           <button onClick={handleSearch}>Buscar</button>
         </form>
       </div>
-      <div id="objeto">
-        <Objeto rastreio={rastreio} isDelivered={delivered}/>
-      </div>
+      <Objeto rastreio={rastreio} isDelivered={delivered}/>
+
     </div>
   );
 }
