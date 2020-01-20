@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+html, body, #app {
+  height: 100%;
+}
+body {
+  background:#F8EFBA;
+  -webkit-font-smoothinbng: antialiased;
+}
+body,input, button {
+  font-family: Roboto, sans-serif;
+}
+#app {
+  max-width:1200px;
+  margin: 0 auto;
+  padding: 10px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

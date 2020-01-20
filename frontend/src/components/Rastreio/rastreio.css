@@ -1,0 +1,27 @@
+.box {
+  background: #FFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px;
+  margin-bottom: 5px;
+  display: flex;
+  gap: 10px;
+}
+.local {
+  width: 120px;
+}
+.data {
+  font-size: 12px;
+}
+.cidade {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.info {
+  padding: 5px;
+}
+.info h4{
+  text-transform: capitalize;
+}
+.info p {
+  text-transform: initial;
+}
