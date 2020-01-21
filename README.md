@@ -6,7 +6,7 @@ Aplicação web para rastreio de encomendas que estão cadastrados nos Correios 
 - NodeJS (express)
 - ReactJS
 
-##### Para testar a aplicação basta acessar o link: https://rastreiaqui-front.herokuapp.com (alterações ainda estão sendo realizadas no frontend)
+##### Para testar a aplicação basta acessar o link: https://rastreiaqui.herokuapp.com (alterações ainda estão sendo realizadas no frontend)
 
 ## Getting started - branch 'backend'
 1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/backend <br>
