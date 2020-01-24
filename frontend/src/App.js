@@ -17,14 +17,13 @@ function App() {
       setDelivered(false)
       const response = await api.get(`/rastrear/${code}`);
       setRastreio(response.data[0])
-      if(response.data[0].isDelivered){
-        console.log('true')
+
+      if(response.data[0].isInvalid){
+        setDelivered(false)
+      }else {
         setDelivered(true)
       }
-      if(response.data[0].isInvalid){
-        console.log('false')
-        setDelivered(false)
-      }
+      
     }
   }
 
