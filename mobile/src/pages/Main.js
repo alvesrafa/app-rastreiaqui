@@ -1,18 +1,28 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
 import api from '../services/api';
- 
+import Objeto from './components/Objeto';
+
+
 function Main() {
+  const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
+  const [rastreio, setRastreio] = useState({});
 
   async function handleSearch() {
-    if(code){
+    if(code !== ""){
+      setRastreio('')
+      setDelivered(false)
       const response = await api.get(`/rastrear/${code}`);
+      setRastreio(response.data[0])
 
-      alert(response.data)
+      if(response.data[0].isInvalid){
+        setDelivered(false)
+      }else {
+        setDelivered(true)
+      }
+      
     }
-    alert('nada')
-    
     
   }
   return(
@@ -32,7 +42,7 @@ function Main() {
             <Text>Buscar</Text>
         </TouchableOpacity>
       </View>
-      
+      <Objeto rastreio={rastreio} isDelivered={delivered}/>
       
     </View>
   )
