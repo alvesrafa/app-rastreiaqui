@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import Rastreio from './Rastreio';
+import {MaterialIcons} from '@expo/vector-icons';
 
 function Objeto({rastreio, isDelivered}) {
   if(isDelivered){
@@ -19,7 +20,7 @@ function Objeto({rastreio, isDelivered}) {
         </View>
       </ScrollView>
     )
-  }else {
+  }else if(isDelivered == false){
     return(
       <View style={styles.container}>
         <View style={styles.error}>
@@ -29,7 +30,15 @@ function Objeto({rastreio, isDelivered}) {
         </View>
       </View>
     )
-  } 
+  } else if(isDelivered == null){
+    return(
+      <View style={styles.container}>
+        <MaterialIcons name="arrow-upward" size={70} color='#fad390'/>
+        <Text>Digite o código de rastrio na caixa acima.</Text>
+        <Text>propagandas</Text>
+      </View>
+    )
+  }
 }
 const styles = StyleSheet.create({
   code: {

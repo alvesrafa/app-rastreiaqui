@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create ({
-  baseURL: 'http://192.168.0.197:3001'
+  baseURL: 'http://rastreiaqui-back.herokuapp.com'
 })
 
 export default api;
