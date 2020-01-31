@@ -1,4 +1,5 @@
-import {View} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 export default function Rastreio({track}) {
   function dataFormatada(date){
@@ -11,16 +12,24 @@ export default function Rastreio({track}) {
       return dia + "/" + mes + "/" + ano + " às " + hora + ":" + minuto;
   }
   return (
-      <View>
+      <View style={styles.objeto}>
           <View>
-              <View>{dataFormatada(track.trackedAt)}</View>  
-              <View>{track.locale}</View>
+              <Text>{dataFormatada(track.trackedAt)}</Text>  
+              <Text>{track.locale}</Text>
           </View>
           <View>
-              <h4>{track.status}</h4>
-              <p>{track.observation}</p>
+              <Text>{track.status}</Text>
+              <Text>{track.observation}</Text>
           </View>
           
       </View>
   );
 }
+const styles = StyleSheet.create({
+    objeto: {
+        backgroundColor: '#FFF',
+        margin: 5,
+        padding: 7,
+    }
+
+})

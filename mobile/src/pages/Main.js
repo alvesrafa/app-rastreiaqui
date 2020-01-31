@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
 import api from '../services/api';
-import Objeto from './components/Objeto';
+import Objeto from '../components/Objeto';
 
 
 function Main() {
@@ -21,7 +21,6 @@ function Main() {
       }else {
         setDelivered(true)
       }
-      
     }
     
   }
@@ -32,7 +31,7 @@ function Main() {
           style={styles.searchInput}
           placeholder="Código de rastreio"
           placeholderTextColor="#999"
-          onChange={setCode}
+          onChangeText={setCode}
         />
 
         <TouchableOpacity 
