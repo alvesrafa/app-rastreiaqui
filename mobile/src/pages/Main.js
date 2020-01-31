@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TextInput, Keyboard, TouchableOpacity} from 'react-native';
 import api from '../services/api';
 import Objeto from '../components/Objeto';
-
+import Lottie from 'lottie-react-native';
+import waiting from '../assets/loading.json';
 
 function Main() {
   const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
   const [rastreio, setRastreio] = useState({});
+  const [loading, setLoading] = useState(null)
 
   async function handleSearch() {
+    Keyboard.dismiss();
     if(code !== ""){
+      setLoading(true)
       setRastreio('')
       setDelivered(false)
       const response = await api.get(`/rastrear/${code}`);
@@ -21,12 +25,14 @@ function Main() {
       }else {
         setDelivered(true)
       }
+      setLoading(false)
     }
     
   }
   return(
     <View style={styles.container}>
       <View style={styles.search}>
+       
         <TextInput
           style={styles.searchInput}
           placeholder="Código de rastreio"
@@ -41,7 +47,9 @@ function Main() {
             <Text>Buscar</Text>
         </TouchableOpacity>
       </View>
-      <Objeto rastreio={rastreio} isDelivered={delivered}/>
+
+      {loading ? <Lottie  resizeMode="contain" autoSize source={waiting} autoPlay loop/> : <Objeto rastreio={rastreio} isDelivered={delivered}/>}
+      
       
     </View>
   )
@@ -49,13 +57,16 @@ function Main() {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor:'#ffeaa7'
+    backgroundColor:'#ffeaa7',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   search: {
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    
   },
   searchInput: {
     backgroundColor: '#FFF',
