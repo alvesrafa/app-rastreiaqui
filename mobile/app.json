@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "RastreiAqui",
+    "slug": "rastreiaqui",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -24,7 +24,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329" 
+      }
+    },
+    "android": {
+      "package": "com.rastreiaqui",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329" 
+      },
+      "versionCode": 1
+    },
+    "description": "Uma aplicação que facilita a busca e mostra o status atual de sua encomenda de forma rápida e segura!"
+    
   }
 }

@@ -2,8 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
+import {AdMobBanner} from 'expo-ads-admob'
 
 function Objeto({rastreio, isDelivered}) {
+  function bannerError(e) {
+    console.log(e)
+  }
   if(isDelivered){
     return(
       <ScrollView>
@@ -34,14 +38,41 @@ function Objeto({rastreio, isDelivered}) {
     return(
       <View style={styles.container}>
         <MaterialIcons name="arrow-upward" size={70} color='#fad390'/>
-        <Text>Digite o código de rastrio na caixa acima.</Text>
-        <Text>propagandas</Text>
+        <Text>Digite o código de rastreio na caixa de texto acima.</Text>
+        <View style={styles.ads}>
+          <AdMobBanner
+            bannerSize="fullBanner"
+            adUnitID="ca-app-pub-7133783895498608/7208935598" 
+            testDeviceID="EMULATOR"
+            onDidFailToReceiveAdWithError={e => bannerError(e)} 
+          />
+          <AdMobBanner
+            bannerSize="mediumRectangle"
+            adUnitID="ca-app-pub-7133783895498608/5723914796" 
+            testDeviceID="EMULATOR"
+            onDidFailToReceiveAdWithError={e => bannerError(e)} 
+          />
+          <AdMobBanner
+            bannerSize="fullBanner"
+            adUnitID="ca-app-pub-7133783895498608/6131302428" 
+            testDeviceID="EMULATOR"
+            onDidFailToReceiveAdWithError={e => bannerError(e)}  
+          />
+        </View>
+        
+
+
       </View>
     )
   }
 }
 const styles = StyleSheet.create({
-  code: {
+  ads: {
+    flex:1,
+    flexDirection:'column',
+    justifyContent: 'space-around',
+    margin: 5
+  },code: {
     fontWeight: 'bold',
     fontSize: 22,
   },
