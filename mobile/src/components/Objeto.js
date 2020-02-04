@@ -5,9 +5,8 @@ import {MaterialIcons} from '@expo/vector-icons';
 import {AdMobBanner} from 'expo-ads-admob'
 
 function Objeto({rastreio, isDelivered}) {
-  function bannerError(e) {
-    console.log(e)
-  }
+
+
   if(isDelivered){
     return(
       <ScrollView>
@@ -43,21 +42,22 @@ function Objeto({rastreio, isDelivered}) {
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/7208935598" 
-            testDeviceID="EMULATOR"
-            onDidFailToReceiveAdWithError={e => bannerError(e)} 
+            testDevices={[AdMobBanner.simulatorId]}
+            onDidFailToReceiveAdWithError={error => console.error(error)} 
           />
           <AdMobBanner
-            bannerSize="mediumRectangle"
+            bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/5723914796" 
-            testDeviceID="EMULATOR"
-            onDidFailToReceiveAdWithError={e => bannerError(e)} 
+            testDevices={[AdMobBanner.simulatorId]}
+            onDidFailToReceiveAdWithError={error => console.error(error)} 
           />
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/6131302428" 
-            testDeviceID="EMULATOR"
-            onDidFailToReceiveAdWithError={e => bannerError(e)}  
+            testDevices={[AdMobBanner.simulatorId]}
+            onDidFailToReceiveAdWithError={error => console.error(error)}  
           />
+          
         </View>
         
 
