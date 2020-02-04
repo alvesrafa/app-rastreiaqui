@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 
 export default function Salvos({navigation}){
   useEffect(()=> {
-    alert('Em breve!'),
+    alert('Disponível em breve!'),
     navigation.navigate('Main')
   }, [])
   return (

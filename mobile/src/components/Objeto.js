@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
-import {AdMobBanner} from 'expo-ads-admob'
+import {AdMobBanner} from 'expo-ads-admob';
 
 function Objeto({rastreio, isDelivered}) {
 

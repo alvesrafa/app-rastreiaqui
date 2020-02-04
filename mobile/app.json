@@ -26,17 +26,18 @@
     "ios": {
       "supportsTablet": true,
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329" 
+        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329"
       }
     },
     "android": {
       "package": "com.rastreiaqui",
+      "icon": "./assets/icon.png",
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329" 
+        "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329"
       },
       "versionCode": 1
     },
-    "description": "Uma aplicação que facilita a busca e mostra o status atual de sua encomenda de forma rápida e segura!"
-    
+    "description": "Uma aplicação que facilita a busca e mostra o status atual de sua encomenda de forma rápida e segura!",
+    "githubUrl": "https://github.com/alvesrafa/app-rastreiaqui/tree/master/mobile"
   }
 }
