@@ -9,13 +9,13 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.01",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f6e58d"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -30,7 +30,7 @@
       }
     },
     "android": {
-      "package": "com.rastreiaqui",
+      "package": "com.mobile.rastreiaqui",
       "icon": "./assets/icon.png",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329"

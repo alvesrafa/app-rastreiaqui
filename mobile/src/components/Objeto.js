@@ -43,18 +43,21 @@ function Objeto({rastreio, isDelivered}) {
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/7208935598" 
             testDevices={[AdMobBanner.simulatorId]}
+            servePersonalizedAds
             onDidFailToReceiveAdWithError={error => console.error(error)} 
           />
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/5723914796" 
             testDevices={[AdMobBanner.simulatorId]}
+            servePersonalizedAds
             onDidFailToReceiveAdWithError={error => console.error(error)} 
           />
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/6131302428" 
             testDevices={[AdMobBanner.simulatorId]}
+            servePersonalizedAds
             onDidFailToReceiveAdWithError={error => console.error(error)}  
           />
           
@@ -70,8 +73,7 @@ const styles = StyleSheet.create({
   ads: {
     flex:1,
     flexDirection:'column',
-    justifyContent: 'space-around',
-    margin: 5
+    justifyContent: 'space-around'
   },code: {
     fontWeight: 'bold',
     fontSize: 22,
