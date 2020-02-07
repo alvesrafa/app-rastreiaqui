@@ -1,19 +1,21 @@
 import React from 'react';
-import {View, Text, StyleSheet,ScrollView} from 'react-native';
+import {View, Text, StyleSheet,ScrollView, TouchableOpacity} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
 import {AdMobBanner} from 'expo-ads-admob';
+import ButtonSave from './ButtonSave';
+
 
 function Objeto({rastreio, isDelivered}) {
-
+  
 
   if(isDelivered){
     return(
       <ScrollView>
         <View style={styles.container}>
- 
-          <Text style={styles.code}>Código de rastreio: {rastreio.code}</Text>
 
+          <ButtonSave/>
+          
           <View style={styles.objetos}>
             {rastreio.tracks.map((track, key) => (
               <Rastreio key={key} track={track} />
@@ -27,9 +29,13 @@ function Objeto({rastreio, isDelivered}) {
     return(
       <View style={styles.container}>
         <View style={styles.error}>
-          <Text style={styles.code}>Código: {rastreio.code}</Text>
+          
+          <ButtonSave code={rastreio.code}/>
+
           <Text style={styles.errorStatus}>Código inválido ou ainda não atualizado</Text>
+
           <Text>Verifique o código e realize uma nova busca. caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</Text>
+        
         </View>
       </View>
     )
@@ -74,9 +80,6 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'column',
     justifyContent: 'space-around'
-  },code: {
-    fontWeight: 'bold',
-    fontSize: 22,
   },
   container: {
     flex:1,
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop:3,
     marginBottom:3
-  }
+  },
+  
 })
 export default Objeto;
