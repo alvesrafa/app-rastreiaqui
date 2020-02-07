@@ -1,10 +1,18 @@
 import React from 'react';
-import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
-import codigos from '../assets/codigos'
+import {TouchableOpacity, Text, View, StyleSheet, Alert,AsyncStorage} from 'react-native';
+import { salvarCodigo, removerCodigo, loadCodigos } from '../assets/store';
+
 export default function ButtonSave({code}){
   
-  function saveCode(){
-    alert(codigos)
+  async function saveCode(){
+    const codigos = await loadCodigos();
+    let novos = [...codigos, {"codigo": code}]
+    salvarCodigo(novos)
+    
+  }
+  async function mostrar(){
+    const codigos = await loadCodigos();
+    console.log(codigos)
   }
 
   return(
@@ -12,6 +20,9 @@ export default function ButtonSave({code}){
       <Text style={styles.code}>Código: {code}</Text>
       <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
         <Text>Salvar código</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.saveButton} onPress={mostrar}>
+        <Text>mostrar código</Text>
       </TouchableOpacity>
     </View>
   

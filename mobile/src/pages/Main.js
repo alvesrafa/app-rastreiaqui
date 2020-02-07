@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Box from '../components/Box';
-import {AdMobBanner} from 'expo-ads-admob'
+import {AdMobBanner} from 'expo-ads-admob';
+
 function Main({navigation}) {
 
   return(
     <>
-    
       <View style={styles.container}>
         <Box page="Rastreamento" icon="search" navigation={navigation}/>
         <Box page="Salvos" icon="save" navigation={navigation} />

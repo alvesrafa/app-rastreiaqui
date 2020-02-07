@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet,ScrollView,  AsyncStorage} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
 import {AdMobBanner} from 'expo-ads-admob';
@@ -7,7 +7,7 @@ import ButtonSave from './ButtonSave';
 
 
 function Objeto({rastreio, isDelivered}) {
-  
+
 
   if(isDelivered){
     return(
