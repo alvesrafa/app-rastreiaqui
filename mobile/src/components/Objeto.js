@@ -14,7 +14,7 @@ function Objeto({rastreio, isDelivered}) {
       <ScrollView>
         <View style={styles.container}>
 
-          <ButtonSave/>
+          <ButtonSave code={rastreio.code}/>
           
           <View style={styles.objetos}>
             {rastreio.tracks.map((track, key) => (

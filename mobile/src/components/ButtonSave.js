@@ -1,13 +1,14 @@
 import React from 'react';
-import {TouchableOpacity, Text, View, StyleSheet, Alert,AsyncStorage} from 'react-native';
+import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
 import { salvarCodigo, removerCodigo, loadCodigos } from '../assets/store';
 
 export default function ButtonSave({code}){
   
   async function saveCode(){
+    
     const codigos = await loadCodigos();
-    let novos = [...codigos, {"codigo": code}]
-    salvarCodigo(novos)
+    console.log(typeof(codigos))
+    //salvarCodigo(teste)
     
   }
   async function mostrar(){

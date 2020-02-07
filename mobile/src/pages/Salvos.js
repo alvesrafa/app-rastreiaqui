@@ -1,14 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import { loadCodigos } from '../assets/store';
 
 export default function Salvos({navigation}){
+  const [codes, setCodes] = useState([])
   useEffect(()=> {
-    alert('Disponível em breve!'),
-    navigation.navigate('Main')
+    async function load() {
+      const codigos = await loadCodigos();
+      console.log(codigos)
+    }
+    load();
+
   }, [])
   return (
     <View>
-      <Text style={styles.error}>Retornando a pagina inicial</Text>
+      
+        <Text>
+          teste
+        </Text>
+ 
     </View>
   )
 }

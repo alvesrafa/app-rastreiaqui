@@ -10,9 +10,7 @@ export const removerCodigo = (codigos) => {
   AsyncStorage.removeItem('CODIGOS');
 }
  
-const DEFAULT = {
-  "codigos": [{}],
-};
+const DEFAULT = [];
  
 export const loadCodigos = async () => {
   try {
