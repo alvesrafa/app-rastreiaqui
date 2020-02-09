@@ -48,7 +48,11 @@ function Rastreamento() {
         </TouchableOpacity>
       </View>
 
-      {loading ? <Lottie resizeMode="contain" autoSize source={waiting} autoPlay loop/> : <Objeto rastreio={rastreio} isDelivered={delivered}/>}
+      {loading ? 
+        <Lottie resizeMode="contain" autoSize source={waiting} autoPlay loop/> 
+        : 
+        <Objeto rastreio={rastreio} isDelivered={delivered}/>
+      }
       
       
     </View>

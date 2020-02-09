@@ -7,13 +7,11 @@ export default function ButtonSave({code}){
   async function saveCode(){
     
     const codigos = await loadCodigos();
-    console.log(typeof(codigos))
-    //salvarCodigo(teste)
+
+    codigos.push(code)
+
+    salvarCodigo(codigos)
     
-  }
-  async function mostrar(){
-    const codigos = await loadCodigos();
-    console.log(codigos)
   }
 
   return(
@@ -22,11 +20,7 @@ export default function ButtonSave({code}){
       <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
         <Text>Salvar código</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.saveButton} onPress={mostrar}>
-        <Text>mostrar código</Text>
-      </TouchableOpacity>
     </View>
-  
   )
 }
 
