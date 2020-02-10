@@ -1,15 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, TextInput, Keyboard, TouchableOpacity} from 'react-native';
 import api from '../services/api';
 import Objeto from '../components/Objeto';
 import Lottie from 'lottie-react-native';
 import waiting from '../assets/loading.json';
 
-function Rastreamento() {
+function Rastreamento({navigation}) {
   const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
   const [rastreio, setRastreio] = useState({});
-  const [loading, setLoading] = useState(null)
+  const [loading, setLoading] = useState(null);
+ 
+  useEffect(() => {
+
+    if(navigation.state.params != undefined){
+      console.log(navigation.state.params.codigo)
+      setCode(navigation.state.params.codigo)
+    }
+      
+
+
+    
+  }, [])
 
   async function handleSearch() {
     Keyboard.dismiss();
@@ -20,11 +32,9 @@ function Rastreamento() {
       const response = await api.get(`/rastrear/${code}`);
       setRastreio(response.data[0])
 
-      if(response.data[0].isInvalid){
-        setDelivered(false)
-      }else {
+      if(!response.data[0].isInvalid)
         setDelivered(true)
-      }
+
       setLoading(false)
     }
     
@@ -38,6 +48,8 @@ function Rastreamento() {
           placeholder="Código de rastreio"
           placeholderTextColor="#999"
           onChangeText={setCode}
+          autoFocus={true}
+          value={code}
         />
 
         <TouchableOpacity 
@@ -74,10 +86,11 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     backgroundColor: '#FFF',
-    height: 33,
+    height: 35,
     minWidth: 250,
     margin: 15,
     padding: 7,
+    fontSize: 22,
     borderWidth: 1,
     borderColor: 'rgba(254, 211, 48,1.0)',
   },

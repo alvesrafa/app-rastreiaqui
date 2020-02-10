@@ -1,20 +1,29 @@
-import React from 'react';
-import {View, Text, StyleSheet,ScrollView,  AsyncStorage} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
 import {AdMobBanner} from 'expo-ads-admob';
 import ButtonSave from './ButtonSave';
-
+import { loadCodigos } from '../assets/store';
 
 function Objeto({rastreio, isDelivered}) {
-
+  const [salvo, setSalvo] = useState(false)
+  useEffect(() => {
+   async function load(){
+    let codigos = await loadCodigos();
+    setSalvo(codigos.includes(rastreio.code))
+    console.log(salvo)
+   }
+   load();
+  }, [])
 
   if(isDelivered){
     return(
       <ScrollView>
         <View style={styles.container}>
 
-          <ButtonSave code={rastreio.code}/>
+          { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
+          
           
           <View style={styles.objetos}>
             {rastreio.tracks.map((track, key) => (
@@ -30,7 +39,7 @@ function Objeto({rastreio, isDelivered}) {
       <View style={styles.container}>
         <View style={styles.error}>
           
-          <ButtonSave code={rastreio.code}/>
+        { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
 
           <Text style={styles.errorStatus}>Código inválido ou ainda não atualizado</Text>
 
@@ -45,6 +54,7 @@ function Objeto({rastreio, isDelivered}) {
         <MaterialIcons name="arrow-upward" size={70} color='#fad390'/>
         <Text>Digite o código de rastreio na caixa de texto acima.</Text>
         <View style={styles.ads}>
+          
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/7208935598" 

@@ -8,7 +8,7 @@ function Main({navigation}) {
   return(
     <>
       <View style={styles.container}>
-        <Box page="Rastreamento" icon="search" navigation={navigation}/>
+        <Box page="Rastreamento" navigation={navigation} icon="search"/>
         <Box page="Salvos" icon="save" navigation={navigation} />
       </View>
       <AdMobBanner

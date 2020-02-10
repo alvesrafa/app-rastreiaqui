@@ -1,18 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
-import { loadCodigos } from '../assets/store';
 import {AdMobBanner} from 'expo-ads-admob';
-
+import { salvarCodigo, loadCodigos } from '../assets/store';
 export default function Salvos({navigation}){
   const [codes, setCodes] = useState([])
   useEffect(()=> {
-    async function mostrar(){
-      const codigos = await loadCodigos();
-      setCodes(codigos)
-    }
-    mostrar();
-
+    load();
   }, [])
+  async function load(){
+    const codigos = await loadCodigos();
+    setCodes(codigos)
+  }
+  function verificar(code){
+    navigation.navigate('Rastreamento', {codigo: code})
+  }
+  function deletar(codigo){
+    let codigos = codes;
+    codigos.splice(codigos.indexOf(codigo), 1);
+    salvarCodigo(codigos);
+    load()
+  }
   return (
     <>
     <ScrollView style={styles.container}>
@@ -21,11 +28,11 @@ export default function Salvos({navigation}){
         <View key={id} style={styles.card}>
           <Text style={{fontSize: 18}}>{code}</Text>
           <View style={styles.buttons}>
-            <TouchableOpacity style={styles.buttonVerify}>
+            <TouchableOpacity onPress={() => verificar(code)} style={styles.buttonVerify}>
               <Text style={styles.buttonText}>Verificar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonDelete}>
-              <Text style={styles.buttonText}>X</Text>
+            <TouchableOpacity onPress={() => deletar(code)} style={styles.buttonDelete}>
+              <Text style={styles.buttonText}> X </Text>
             </TouchableOpacity>
           </View>
           
