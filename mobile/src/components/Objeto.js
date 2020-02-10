@@ -12,7 +12,6 @@ function Objeto({rastreio, isDelivered}) {
    async function load(){
     let codigos = await loadCodigos();
     setSalvo(codigos.includes(rastreio.code))
-    console.log(salvo)
    }
    load();
   }, [])

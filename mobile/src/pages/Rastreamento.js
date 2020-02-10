@@ -13,14 +13,9 @@ function Rastreamento({navigation}) {
  
   useEffect(() => {
 
-    if(navigation.state.params != undefined){
-      console.log(navigation.state.params.codigo)
+    if(navigation.state.params != undefined)
       setCode(navigation.state.params.codigo)
-    }
-      
 
-
-    
   }, [])
 
   async function handleSearch() {
