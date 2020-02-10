@@ -22,10 +22,11 @@ function Objeto({rastreio, isDelivered}) {
       <ScrollView>
         <View style={styles.container}>
 
+          
           { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
           
-          
           <View style={styles.objetos}>
+          
             {rastreio.tracks.map((track, key) => (
               <Rastreio key={key} track={track} />
             ))}
@@ -37,10 +38,8 @@ function Objeto({rastreio, isDelivered}) {
   }else if(isDelivered == false){
     return(
       <View style={styles.container}>
-        <View style={styles.error}>
-          
         { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
-
+        <View style={styles.error}>
           <Text style={styles.errorStatus}>Código inválido ou ainda não atualizado</Text>
 
           <Text>Verifique o código e realize uma nova busca. caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</Text>
@@ -55,13 +54,7 @@ function Objeto({rastreio, isDelivered}) {
         <Text>Digite o código de rastreio na caixa de texto acima.</Text>
         <View style={styles.ads}>
           
-          <AdMobBanner
-            bannerSize="fullBanner"
-            adUnitID="ca-app-pub-7133783895498608/7208935598" 
-            testDevices={[AdMobBanner.simulatorId]}
-            servePersonalizedAds
-            onDidFailToReceiveAdWithError={error => console.error(error)} 
-          />
+          
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/5723914796" 

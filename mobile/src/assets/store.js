@@ -6,10 +6,6 @@ export const salvarCodigo = (codigos) => {
    
 }
  
-export const removerCodigo = (codigos) => {
-  AsyncStorage.removeItem('CODIGOS');
-}
- 
 const DEFAULT = [];
  
 export const loadCodigos = async () => {

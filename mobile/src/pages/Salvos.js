@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert} from 'react-native';
 import {AdMobBanner} from 'expo-ads-admob';
 import { salvarCodigo, loadCodigos } from '../assets/store';
+
 export default function Salvos({navigation}){
   const [codes, setCodes] = useState([])
   useEffect(()=> {
@@ -15,10 +16,28 @@ export default function Salvos({navigation}){
     navigation.navigate('Rastreamento', {codigo: code})
   }
   function deletar(codigo){
-    let codigos = codes;
-    codigos.splice(codigos.indexOf(codigo), 1);
-    salvarCodigo(codigos);
-    load()
+    Alert.alert(
+      'Deletar código salvo?',
+      'Você tem certeza que deseja deletar o codigo ' + codigo + '?',
+      [
+        
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancelado'),
+          style: 'cancel',
+        },
+        { text: 'Sim, tenho certeza!', onPress: () => {
+          {
+            let codigos = codes;
+            codigos.splice(codigos.indexOf(codigo), 1);
+            salvarCodigo(codigos);
+            load()
+          }
+        } },
+      ],
+      { cancelable: false }
+    );
+    
   }
   return (
     <>
@@ -43,15 +62,15 @@ export default function Salvos({navigation}){
         </View>
         
       )}
+      
     </ScrollView>
     <AdMobBanner
-    style={styles.bottomBanner}
-      bannerSize="fullBanner"
-      adUnitID="ca-app-pub-7133783895498608/7208935598" 
-      testDevices={[AdMobBanner.simulatorId]}
-      servePersonalizedAds
-      onDidFailToReceiveAdWithError={error => console.error(error)} 
-    />
+        bannerSize="fullBanner"
+        adUnitID="ca-app-pub-7133783895498608/7208935598" 
+        testDevices={[AdMobBanner.simulatorId]}
+        servePersonalizedAds
+        onDidFailToReceiveAdWithError={error => console.error(error)} 
+      />
     </>
   )
 }

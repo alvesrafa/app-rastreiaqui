@@ -1,6 +1,6 @@
 import React from 'react';
-import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
-import { salvarCodigo, removerCodigo, loadCodigos } from '../assets/store';
+import {TouchableOpacity, Text, View, StyleSheet, Alert} from 'react-native';
+import { salvarCodigo, loadCodigos } from '../assets/store';
 
 export default function ButtonSave({code}){
   
@@ -11,12 +11,14 @@ export default function ButtonSave({code}){
     codigos.push(code)
 
     salvarCodigo(codigos)
+
+    Alert.alert('Sucesso!', 'Agora seu código ja esta salvo! ")')
     
   }
 
   return(
     <View style={styles.codeBlock}>
-      <Text style={styles.code}>Código: {code}</Text>
+      <Text style={styles.code}>{code}</Text>
       <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
         <Text>Salvar código</Text>
       </TouchableOpacity>
@@ -26,11 +28,23 @@ export default function ButtonSave({code}){
 
 const styles = StyleSheet.create({
   codeBlock: {
-    justifyContent: 'space-between',
     flexDirection: 'row',
+    alignItems:'center',
+    flexWrap:'wrap',
+    justifyContent:'space-around',
+    backgroundColor:'#FFF',
+    padding: 15,
+    width: '80%',
+    borderWidth: 1.6,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRadius: 5,
+    marginBottom: 5,
   },code: {
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 20,
   },
   saveButton: {
     backgroundColor:'#6ab04c',
