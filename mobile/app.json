@@ -30,7 +30,11 @@
       }
     },
     "android": {
-      "package": "com.mobile.rastreiaqui",
+      "package": "com.raufa.rastreiaqui",
+      "adaptiveIcon": {
+        "backgroundColor": "#FFF",
+        "foregroundImage": "./assets/icon.png"
+      },
       "icon": "./assets/icon.png",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-7133783895498608~1623447329"
