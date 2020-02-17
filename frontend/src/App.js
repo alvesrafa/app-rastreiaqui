@@ -6,6 +6,7 @@ import Lottie from 'react-lottie';
 import animationData from './assets/loading.json';
 import Objeto from './components/Objeto';
 
+
 function App() {
   const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
@@ -32,19 +33,10 @@ function App() {
   }
 
   return (
-    <>
-    <header>
-      <ul>
-        <li><img src={logo} width="60" alt="logo rastreiaqui"/></li>
-        <ul>
-        <li><a onClick={()=> {setDelivered(null)}}>Sobre</a></li>
-          <li><a onClick={()=> {setDelivered(null)}}>Contato</a></li>
-        </ul>
-      </ul>
-    </header>
+    
     <div id="app">
       <div className="search">
-        <h1><img src={logo} width="120" alt="RastreiAqui"/></h1>
+        <h1> <a onClick={()=> setDelivered(null)}><img src={logo} width="120" alt="RastreiAqui"/></a> </h1>
       
         <form>
           <input placeholder="Código de rastreio" value={code} onChange={e => setCode(e.target.value)} />
@@ -57,7 +49,6 @@ function App() {
         loading ? 
         
         <Lottie
-          className="loading"
           options={{
             loop: true,
             autoplay: true, 
@@ -76,7 +67,8 @@ function App() {
       }
 
     </div>
-    </>
+    
+    
   );
 }
 
