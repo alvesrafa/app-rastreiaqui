@@ -1,5 +1,5 @@
 const mailer = require('nodemailer');
-import {EMAIL_USERNAME, EMAIL_PASS} from '../../../env.json';
+
 const config = {
     host: 'smtp.mailtrap.io',
     port: 25,
