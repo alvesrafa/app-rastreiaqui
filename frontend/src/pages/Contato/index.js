@@ -8,8 +8,9 @@ const Contato = () => {
 
     function handleContato(e){
         e.preventDefault();
-        console.log(email)
-        console.log(info)
+        
+
+        
         setEmail('');
         setInfo('');
         alert('Mensagem entregue com sucesso! Obrigado por me ajudar a evoluir ")')
