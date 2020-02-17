@@ -3,28 +3,32 @@ import './app.css';
 import api from './services/api';
 import Objeto from './components/Objeto';
 import logo from './logo.png';
-
+import Lottie from 'react-lottie';
+import animationData from './assets/loading.json';
 
 function App() {
   const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
   const [rastreio, setRastreio] = useState({});
+  const [loading, setLoading] = useState(false);
 
   async function handleSearch(e) {
     e.preventDefault();
+    setLoading(true);
     if(code !== ""){
       setRastreio('')
       setDelivered(false)
       const response = await api.get(`/rastrear/${code}`);
       setRastreio(response.data[0])
 
-      if(response.data[0].isInvalid){
+      if(response.data[0].isInvalid){ //validação deve ser feita por objeto
         setDelivered(false)
       }else {
         setDelivered(true)
       }
-      
     }
+    
+    setLoading(false);
   }
 
   return (
@@ -44,11 +48,32 @@ function App() {
       
         <form>
           <input placeholder="Código de rastreio" value={code} onChange={e => setCode(e.target.value)} />
-          <button onClick={handleSearch}>Buscar</button>
+          <button type="submit" onClick={handleSearch}>Buscar</button>
         </form>
         <h3>Rastreie Aqui a sua encomenda de forma rápida e segura!</h3>
       </div>
-      <Objeto rastreio={rastreio} isDelivered={delivered}/>
+
+      { 
+        loading ? 
+    
+          <Lottie
+            className="loading"
+            options={{
+              loop: true,
+              autoplay: true, 
+              animationData,
+              rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice'
+              }
+            }}
+            height={400}
+            width={400}
+          />
+   
+        : 
+
+        <Objeto rastreio={rastreio} isDelivered={delivered}/>
+      }
 
     </div>
     </>
