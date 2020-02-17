@@ -5,7 +5,7 @@ const Sobre = () => {
     return (
         <div id="sobre">
             <h2>Quem somos?</h2>
-            <p>Este projeto foi realizado com o intuito de facilitar a busca de milhares de pessoas sobre suas encomendas de forma rápida e gratuita. Está aplicação ainda está em desenvolvimento então caso possua alguma crítica ou sugestão poderá informar na área de 'Contato'.</p>
+            <p>Este projeto foi realizado com o intuito de facilitar a busca de milhares de pessoas sobre suas encomendas de forma rápida e gratuita. Esta aplicação ainda está em desenvolvimento então caso possua alguma crítica ou sugestão poderá informar na área de 'Contato'.</p>
             <p>A aplicação faz consulta diretamente da base de dados do Correios BR e você pode utilizar de forma gratuita para localizar sua encomenda em qualquer local apenas possuindo o código de rastreio.</p>
 
             <h2>Correios BR</h2>
