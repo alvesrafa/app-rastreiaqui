@@ -5,7 +5,7 @@ import logo from './logo.png';
 import Lottie from 'react-lottie';
 import animationData from './assets/loading.json';
 import Objeto from './components/Objeto';
-
+import Contato from './pages/Contato';
 
 function App() {
   const [delivered, setDelivered] = useState(null);
@@ -33,8 +33,17 @@ function App() {
   }
 
   return (
-    
+    <>
+    <header>
+        <ul>
+          <li><a to="/"><img src={logo} width="60" alt="logo rastreiaqui"/></a></li>
+          <ul>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </ul>
+    </header>
     <div id="app">
+      
       <div className="search">
         <h1> <a onClick={()=> setDelivered(null)}><img src={logo} width="120" alt="RastreiAqui"/></a> </h1>
       
@@ -65,9 +74,9 @@ function App() {
 
         <Objeto rastreio={rastreio} isDelivered={delivered}/>
       }
-
+      <Contato/>
     </div>
-    
+    </>
     
   );
 }
