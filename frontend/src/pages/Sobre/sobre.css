@@ -1,9 +1,12 @@
 #sobre {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
   margin-top: 10px;
   background: #FFF;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  padding: 30px 20px;
+  padding: 30px 50px;
 
   
 }

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './app.css';
 import api from './services/api';
-import Objeto from './components/Objeto';
 import logo from './logo.png';
 import Lottie from 'react-lottie';
 import animationData from './assets/loading.json';
+import Objeto from './components/Objeto';
 
 function App() {
   const [delivered, setDelivered] = useState(null);
@@ -37,8 +37,8 @@ function App() {
       <ul>
         <li><img src={logo} width="60" alt="logo rastreiaqui"/></li>
         <ul>
-          <li><a onClick={(e)=> {setDelivered(null)}}>Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
+        <li><a onClick={()=> {setDelivered(null)}}>Sobre</a></li>
+          <li><a onClick={()=> {setDelivered(null)}}>Contato</a></li>
         </ul>
       </ul>
     </header>
@@ -55,21 +55,21 @@ function App() {
 
       { 
         loading ? 
-    
-          <Lottie
-            className="loading"
-            options={{
-              loop: true,
-              autoplay: true, 
-              animationData,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              }
-            }}
-            height={400}
-            width={400}
-          />
-   
+        
+        <Lottie
+          className="loading"
+          options={{
+            loop: true,
+            autoplay: true, 
+            animationData,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          }}
+          height={400}
+          width={400}
+        />
+      
         : 
 
         <Objeto rastreio={rastreio} isDelivered={delivered}/>
