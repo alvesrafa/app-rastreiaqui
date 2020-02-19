@@ -8,6 +8,8 @@ import { loadCodigos } from '../assets/store';
 
 function Objeto({rastreio, isDelivered}) {
   const [salvo, setSalvo] = useState(false)
+
+
   useEffect(() => {
    async function load(){
     let codigos = await loadCodigos();
