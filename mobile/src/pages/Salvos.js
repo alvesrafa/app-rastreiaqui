@@ -45,7 +45,7 @@ export default function Salvos({navigation}){
       
       {codes ? codes.map((code, id) => (
         <View key={id} style={styles.card}>
-          <Text style={{fontSize: 18}}>{code}</Text>
+          <Text style={{fontSize: 16}}>{code}</Text>
           <View style={styles.buttons}>
             <TouchableOpacity onPress={() => verificar(code)} style={styles.buttonVerify}>
               <Text style={styles.buttonText}>Verificar</Text>
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   card: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     backgroundColor: '#FFF',
     padding: 10,
     paddingRight: 2,

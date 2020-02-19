@@ -55,8 +55,11 @@ function Rastreamento({navigation}) {
         </TouchableOpacity>
       </View>
 
-      {loading ? 
-        <Lottie resizeMode="contain" autoSize source={waiting} autoPlay loop/> 
+      {loading ?
+        <View style={styles.lottie}>
+          <Lottie resizeMode="contain" autoSize source={waiting} autoPlay loop/>
+        </View> 
+        
         : 
         <Objeto rastreio={rastreio} isDelivered={delivered}/>
       }
@@ -71,6 +74,10 @@ const styles = StyleSheet.create({
     backgroundColor:'#ffeaa7',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  lottie: {
+    flex:1,
+    alignItems: 'center'
   },
   search: {
     height: 60,
