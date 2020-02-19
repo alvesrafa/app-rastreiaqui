@@ -36,7 +36,7 @@ function Objeto({rastreio, isDelivered}) {
 
           {
             salvo ? 
-            <div>salvo</div> 
+            <></>
             : 
             <View style={styles.codeBlock}>
               <Text style={styles.code}>{rastreio.code}</Text>
