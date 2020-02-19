@@ -29,6 +29,7 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   padding: 30px 20px;
+  transition: all 200ms;
 }
 .rastreio-code-invalid h3{
   margin: 10px 0;

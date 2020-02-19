@@ -1,4 +1,5 @@
 import React from 'react';
+import {Grow, Paper, } from '@material-ui/core'
 import './rastreio.css';
 function Rastreio({track}) {
     function dataFormatada(date){
@@ -11,17 +12,18 @@ function Rastreio({track}) {
         return dia + "/" + mes + "/" + ano + " às " + hora + ":" + minuto;
     }
     return (
-        <div className="box">
-            <div className="local">
-                <div className="data">{dataFormatada(track.trackedAt)}</div>  
-                <div className="cidade">{track.locale}</div>
-            </div>
-            <div className="info">
-                <h4>{track.status}</h4>
-                <p>{track.observation}</p>
-            </div>
-            
-        </div>
+        <Grow in={true} timeout={1150}>
+            <Paper elevation={2} className="box">
+                <div className="local">
+                    <div className="data">{dataFormatada(track.trackedAt)}</div>  
+                    <div className="cidade">{track.locale}</div>
+                </div>
+                <div className="info">
+                    <h4>{track.status}</h4>
+                    <p>{track.observation}</p>
+                </div>
+            </Paper>
+        </Grow>
     );
 }
 
