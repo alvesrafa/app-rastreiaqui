@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet,ScrollView} from 'react-native';
+import {View, Text, StyleSheet,ScrollView, TouchableOpacity, Alert} from 'react-native';
 import Rastreio from './Rastreio';
 import {MaterialIcons} from '@expo/vector-icons';
 import {AdMobBanner} from 'expo-ads-admob';
-import ButtonSave from './ButtonSave';
-import { loadCodigos } from '../assets/store';
+import { salvarCodigo, loadCodigos } from '../assets/store';
 
 function Objeto({rastreio, isDelivered}) {
-  const [salvo, setSalvo] = useState(false)
 
+  const [salvo, setSalvo] = useState(false);
 
   useEffect(() => {
    async function load(){
@@ -16,15 +15,37 @@ function Objeto({rastreio, isDelivered}) {
     setSalvo(codigos.includes(rastreio.code))
    }
    load();
-  }, [])
+  }, [salvo])
+
+  async function saveCode(){
+    
+    const codigos = await loadCodigos();
+
+    codigos.push(rastreio.code)
+
+    salvarCodigo(codigos)
+    setSalvo(true)
+    Alert.alert('Sucesso!', 'Agora seu código ja esta salvo! ")')
+    
+  }
 
   if(isDelivered){
     return(
       <ScrollView>
         <View style={styles.container}>
 
+          {
+            salvo ? 
+            <div>salvo</div> 
+            : 
+            <View style={styles.codeBlock}>
+              <Text style={styles.code}>{rastreio.code}</Text>
+              <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
+                <Text>Salvar código</Text>
+              </TouchableOpacity>
+            </View> 
+          }
           
-          { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
           
           <View style={styles.objetos}>
           
@@ -39,7 +60,17 @@ function Objeto({rastreio, isDelivered}) {
   }else if(isDelivered == false){
     return(
       <View style={styles.container}>
-        { salvo ? <></> : <ButtonSave code={rastreio.code}/> }
+        { 
+          salvo ? 
+          <></> 
+          : 
+          <View style={styles.codeBlock}>
+            <Text style={styles.code}>{rastreio.code}</Text>
+            <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
+              <Text>Salvar código</Text>
+            </TouchableOpacity>
+          </View>  
+        }
         <View style={styles.error}>
           <Text style={styles.errorStatus}>Código inválido ou ainda não atualizado</Text>
 
@@ -109,6 +140,30 @@ const styles = StyleSheet.create({
     marginTop:3,
     marginBottom:3
   },
-  
+  codeBlock: {
+    width: 250,
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#FFF',
+    padding: 15,
+    borderWidth: 1.6,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRadius: 5,
+    marginBottom: 5,
+  },code: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  saveButton: {
+    backgroundColor:'#6ab04c',
+    paddingBottom: 10,
+    paddingTop: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 2,
+  }
 })
 export default Objeto;
