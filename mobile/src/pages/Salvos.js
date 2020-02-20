@@ -43,7 +43,7 @@ export default function Salvos({navigation}){
     <>
     <ScrollView style={styles.container}>
       
-      {codes ? codes.map((code, id) => (
+      {codes.length != 0 ? codes.map((code, id) => (
         <View key={id} style={styles.card}>
           <Text style={{fontSize: 16}}>{code}</Text>
           <View style={styles.buttons}>
@@ -62,15 +62,15 @@ export default function Salvos({navigation}){
         </View>
         
       )}
-      
-    </ScrollView>
-    <AdMobBanner
+      <AdMobBanner
         bannerSize="fullBanner"
         adUnitID="ca-app-pub-7133783895498608/7208935598" 
         testDevices={[AdMobBanner.simulatorId]}
         servePersonalizedAds
         onDidFailToReceiveAdWithError={error => console.error(error)} 
       />
+    
+    </ScrollView>
     </>
   )
 }
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   buttonText: {
-    color: '#ecf0f1',
+    color: '#000',
     fontSize: 18
   }
 })
