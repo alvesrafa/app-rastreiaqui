@@ -48,7 +48,6 @@ function Objeto({rastreio, isDelivered}) {
           
           
           <View style={styles.objetos}>
-          
             {rastreio.tracks.map((track, key) => (
               <Rastreio key={key} track={track} />
             ))}
@@ -67,14 +66,14 @@ function Objeto({rastreio, isDelivered}) {
           <View style={styles.codeBlock}>
             <Text style={styles.code}>{rastreio.code}</Text>
             <TouchableOpacity style={styles.saveButton} onPress={saveCode}>
-              <Text>Salvar código</Text>
+              <Text style={styles.textButton}>Salvar código</Text>
             </TouchableOpacity>
           </View>  
         }
         <View style={styles.error}>
           <Text style={styles.errorStatus}>Código inválido ou ainda não atualizado</Text>
 
-          <Text>Verifique o código e realize uma nova busca. caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</Text>
+          <Text>Verifique o código e realize uma nova busca. Caso o código esteja correto, aguarde algumas horas até que o correios atualize as informações de sua encomenda.</Text>
         
         </View>
       </View>
@@ -85,8 +84,6 @@ function Objeto({rastreio, isDelivered}) {
         <MaterialIcons name="arrow-upward" size={70} color='#fad390'/>
         <Text>Digite o código de rastreio na caixa de texto acima.</Text>
         <View style={styles.ads}>
-          
-          
           <AdMobBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-7133783895498608/5723914796" 
@@ -114,11 +111,11 @@ const styles = StyleSheet.create({
   ads: {
     flex:1,
     flexDirection:'column',
-    justifyContent: 'space-around'
   },
   container: {
     flex:1,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'space-around',
   },
   objetos: {
     flex:1,
@@ -136,26 +133,28 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   errorStatus: {
-    fontSize: 16,
+    fontSize: 18,
     marginTop:3,
-    marginBottom:3
+    marginBottom:3,
+    fontWeight: 'bold',
   },
   codeBlock: {
-    width: 250,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'#FFF',
-    padding: 15,
+    width: 288,
+    padding: 10,
+    backgroundColor: '#FFF',
     borderWidth: 1.6,
     borderRadius: 2,
     borderColor: '#ddd',
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRadius: 5,
-    marginBottom: 5,
+    marginBottom: 7,
   },code: {
+    
+    flexWrap: 'wrap',
     fontWeight: 'bold',
     fontSize: 20,
+    marginRight: 5
   },
   saveButton: {
     backgroundColor:'#6ab04c',
@@ -164,6 +163,10 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
     borderRadius: 2,
+  },
+  textButton: {
+    color: '#FFF',
+    fontWeight: 'bold',
   }
 })
 export default Objeto;

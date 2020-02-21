@@ -62,13 +62,7 @@ export default function Salvos({navigation}){
         </View>
         
       )}
-      <AdMobBanner
-        bannerSize="fullBanner"
-        adUnitID="ca-app-pub-7133783895498608/7208935598" 
-        testDevices={[AdMobBanner.simulatorId]}
-        servePersonalizedAds
-        onDidFailToReceiveAdWithError={error => console.error(error)} 
-      />
+      
     
     </ScrollView>
     </>
