@@ -114,8 +114,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex:1,
-    alignItems: 'center',
-    justifyContent:'space-around',
+    alignItems: 'center'
   },
   objetos: {
     flex:1,
