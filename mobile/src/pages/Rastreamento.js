@@ -44,6 +44,7 @@ function Rastreamento({navigation}) {
           placeholderTextColor="#999"
           onChangeText={setCode}
           autoFocus={true}
+          onEndEditing={handleSearch}
           value={code}
         />
 
