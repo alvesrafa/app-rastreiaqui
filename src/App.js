@@ -6,13 +6,14 @@ import Lottie from 'react-lottie';
 import animationData from './assets/loading.json';
 import Objeto from './components/Objeto';
 import Contato from './pages/Contato';
+import Modal from 'react-bootstrap/Modal';
 
 function App() {
   const [delivered, setDelivered] = useState(null);
   const [code, setCode] = useState('');
   const [rastreio, setRastreio] = useState({});
   const [loading, setLoading] = useState(false);
-
+  const [show, setShow] = useState(false);
   async function handleSearch(e) {
     e.preventDefault();
     setLoading(true);
@@ -31,14 +32,15 @@ function App() {
     
     setLoading(false);
   }
-
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
     <header>
         <ul>
           <li><a to="/"><img src={logo} width="60" alt="logo rastreiaqui"/></a></li>
           <ul>
-            <li><a href="#contato">Contato</a></li>
+            <li><a onClick={handleShow}>Contato</a></li>
           </ul>
         </ul>
     </header>
@@ -74,7 +76,14 @@ function App() {
 
         <Objeto rastreio={rastreio} isDelivered={delivered}/>
       }
-      <Contato/>
+      <Modal size="lg" show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton />
+
+        <Modal.Body>
+          <Contato/>
+        </Modal.Body>
+      </Modal>
+      
     </div>
     </>
     
