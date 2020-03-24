@@ -1,12 +1,13 @@
 
-## Aplicação RastreiAqui
+## Aplicação RastreiAqui :email:
 Aplicação web para rastreio de encomendas que estão cadastrados nos Correios BR. Utilizando NodeJS e React JS
 
-## Features
+## Features :wrench:
 - NodeJS (express)
 - ReactJS
+- React Native (expo)
 
-##### Para testar a aplicação basta acessar o link: https://rastreiaqui.herokuapp.com (alterações ainda estão sendo realizadas no frontend)
+#### Para testar a aplicação basta acessar o link:[RastreiAqui](https://rastreiaqui.herokuapp.com "Hospedada na heroku, por isso um pouco mais lento") :page_with_curl:
 
 ## Getting started - branch 'backend'
 1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/backend <br>
