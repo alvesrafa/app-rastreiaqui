@@ -1,26 +1,82 @@
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="https://i.imgur.com/Aby9wnl.png" alt="WeatherNow Logo"></a>
+</p>
 
-## Aplicação RastreiAqui :email:
-Aplicação web para rastreio de encomendas que estão cadastrados nos Correios BR. Utilizando NodeJS e React JS
+<h3 align="center">Weather Now :email: </h3>
 
-## Features :wrench:
+
+---
+<div align="center"> 
+  
+## 🧐 Sobre <a name = "about"> </a>
+
+Aplicação web para rastreio de encomendas que estão cadastrados nos Correios BR. Utilizando NodeJS e React JS.
+
+## Demo 🎥 Web / Mobile  <a name = "demo"></a>
+
+![Working](https://im3.ezgif.com/tmp/ezgif-3-27fd6b3ad2db.gif)
+</div>
+
+
+
+## :wrench: <strong>Features</strong> 
 - NodeJS (express)
 - ReactJS
 - React Native (expo)
 
-#### Para testar a aplicação basta acessar o link:[RastreiAqui](https://rastreiaqui.herokuapp.com "Hospedada na heroku, por isso um pouco mais lento") :page_with_curl:
+## 🚀 <strong>Deploy</strong> <a name = "deployment"></a>
+Para testar a aplicação basta acessar o link: [RastreiAqui](https://rastreiaqui.herokuapp.com "Hospedada na heroku, por isso um pouco mais lento") :page_with_curl:
 
-## Getting started - branch 'backend'
-1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/backend <br>
-2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Executar: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;2.1. 'yarn install' <br>
-&nbsp;&nbsp;&nbsp;&nbsp;2.2. 'yarn start ou npx nodemon'<br>
-3. API disponivel em localhost:3001/
+# 🏁 <strong>Getting started</strong>
+## <strong>Back-end</strong>
+1. Acessar o terminal no diretório 'backend'
+```
+cd backend
+```
+2. Istalar dependencias:
+```
+yarn install ou npm install
+```
+3. Rodar o sistema (API disponivel em localhost:3001/)
+```
+yarn start ou npm start
+```
+## <strong>Front-end</strong>
+1. Acessar o terminal no diretório 'frontend':
+```
+cd frontend
+```
+2. Instalar as dependencias:
+```
+yarn install ou npm install
+```
+3. Iniciar aplicação:
+```
+yarn start ou npm start
+```
+## <strong>Mobile</strong>
+### <strong>Opção 1:</strong>
 
-## Getting started - branch 'frontend'
-1. Clonar repositório: https://github.com/alvesrafa/app-rastreiaqui/tree/frontend <br>
-2. Abrir o terminal de comandos (de sua escolha) no diretorio da aplicação. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Executar: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.1. 'yarn install' <br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.2. 'yarn start' <br>
-5. Aplicação será aberta automaticamente em localhost:3000/
+1. Acessar o terminal na pasta mobile:
+```
+cd mobile
+```
+2. Instalar as dependencias:
+```
+yarn install ou npm install
+```
+3. Iniciar aplicação:
+```
+expo start ou yarn start ou npm start 
+```
+4. Baixar aplicativo 'Expo' no seu celular e escanear QR Código.
+### <strong>Opção 2:</strong>
+1. Acessar [Weather-now](https://expo.io/@raufa/weather-now)
+2. Baixar aplicativo 'Expo' no seu celular
+3. Escanear QR Code da página
+---
+
+## ✍️ <strong>Autor</strong> <a name = "authors"></a>
+
+- [@alvesrafa](https://github.com/alvesrafa) 
