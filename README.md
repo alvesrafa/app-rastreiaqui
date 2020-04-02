@@ -1,13 +1,19 @@
 <p align="center">
   <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/Aby9wnl.png" alt="WeatherNow Logo"></a>
+
+ <div align="center">
+ 
+ [![MadeBy](https://img.shields.io/badge/created%20by-raufa-red)](https://github.com/alvesrafa)
+ </div>
 </p>
 
-<h3 align="center">Weather Now :email: </h3>
+<h3 align="center">RastreiAqui :email: </h3>
 
 
 ---
 <div align="center"> 
+  
   
 ## 🧐 Sobre <a name = "about"> </a>
 
