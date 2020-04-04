@@ -21,7 +21,7 @@ Aplicação web para rastreio de encomendas que estão cadastrados nos Correios 
 
 ## Demo 🎥 Web / Mobile  <a name = "demo"></a>
 
-![Working](https://im3.ezgif.com/tmp/ezgif-3-27fd6b3ad2db.gif)
+![Working](https://media.giphy.com/media/Q7X6C2G2vV0q1Ywt6K/giphy.gif)
 </div>
 
 
